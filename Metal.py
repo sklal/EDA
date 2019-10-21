@@ -35,32 +35,9 @@ pd.concat(dup for _, dup in metal.groupby("Band Name") if len(dup) > 1)
 #Drop duplicates
 metal.drop_duplicates(subset =None, keep = 'first' , inplace = True)
 metal.shape
-#Genre - Dividing the Genre list into Black,Death, Thrash, Heavy, Progressive, Djent
+#Genre - There are a lot of sub genres, let's try to categorize them into fewer genres. 
 metal['Genre'] = list(map(lambda x: x.lower(), metal['Genre']))
-metal.head()
-# replacements = {
-#   r'*heavy*': 'Heavy',
-#   r'*black*': 'Black',
-#   r'*thrash*': 'Thrash',
-#   r'*death*': 'Death',
-#   r'*progressive*': 'Progressive',
-#   r'*metalcore*' : 'Metalcore',
-#   r'*industrial*' : 'Industrial',
-#   r'*groove*': 'Groove',
-#   r'*gothic*': 'Gothic',
-#   r'*folk*': 'Folk',
-#   r'*doom*': 'Doom',
-#   r'*rock*': 'Hard Rock',
-#   r'*grindcore*': 'Death',
-#   r'*punk*': 'Punk',
-#   r'*power*': 'Power',
-#   r'**'
-# }
 
-
-# dictMapper = {'Death,Crust,Punk' : 'Death', 'Crust,Punk ,Death,Grindcore': 'Death', 'Melodic black,Symphonic black':'Black','Funeral doom,Atmospheric black':'Black','Folk,Gothic':'Folk','Djent,Ambient':'Djent', 'Thrash,Metalcore':'Metalcore','Gothic,Melodic death ':'Death','Progressive death,Death,Thrash':'Death','Gothic rock,Gothic,Death':'Death','Black,Krautrock':'Black','Experimental rock,Electro avantgarde':'Experimental','Industrial black,Dark,Ambient':'Black','Industrial,Gothic':'Industrial','Doom,Folk,Neofolk':'Doom','Gothic,Metalcore':'Metalcore','Grunge rock,Thrash':'Thrash','Melodic black,Death':'Black','Progressive gothic':'Progressive','Melodic death,Progressive power':'Progressive','Black,Funeral doom,Atmospheric doom':'Black','Depressive black,Dark ambient':'Black','Melodic death,Progressive,Groove thrash':'Groove','Metalcore,Alternative':'Metalcore','Death,Thrash,Industrial':'Death','Noise rock,Hardcore':'Heavy','Technical thrash,Math,Progressive':'Progressive','Gothic doom,Neoclassical darkwave':'Gothic','Black,Pagan folk':'Black','Blackened thrash,Crust,Punk':'Thrash','Heavy,Crust punk':'Heavy','Metalcore,Progressive metalcore':'Metalcore','Black,Progressive black,Extreme progressive':'Black','Black,Doom,Industrial':'Black','Black,Doom,Industrial':'Progressive','Progressive black,Progressive death':'Progressive','Symphonic black':'Black','Pagan black':'Black','Depressive black':'Black','Doom,Sludge':'Doom','Progressive death':'Progressive','Melodic black':'Black','Funeral doom':'Doom','Symphonic power':'Symphonic','Death doom':'Death','Technical death':'Death','Atmospheric black':'Black','Black,Death':'Black','Heavy,Power':'Power','Death,Thrash':'Death','Brutal death':'Death','Grindcore':'Death','Melodic death':'Death'}
-# metal['Genre'] = metal['Genre'].map(lambda x: dictMapper.get(x,x))
-# metal['Genre'].value_counts()
 
 metal.loc[metal['Genre'].str.contains("black"),'Genre'] = 'Black'
 metal.loc[metal['Genre'].str.contains("thrash"),'Genre'] = 'Thrash'
@@ -73,10 +50,8 @@ metal.loc[metal['Genre'].str.contains("folk"),'Genre'] = 'Folk'
 metal.loc[metal['Genre'].str.contains("rock"),'Genre'] = 'Hard Rock'
 metal.loc[metal['Genre'].str.contains("hardcore"),'Genre'] = 'Hard Rock'
 metal.loc[metal['Genre'].str.contains("psychedelic"),'Genre'] = 'Stoner'
-# metal.loc[metal['Genre'].str.contains("grindcore"),'Genre'] = 'Death'
 metal.loc[metal['Genre'].str.contains("alternative"),'Genre'] = 'Alternative'
 metal.loc[metal['Genre'].str.contains("punk"),'Genre'] = 'Alternative'
-# metal.loc[metal['Genre'].str.contains("gothic"),'Genre'] = 'Gothic'
 metal.loc[metal['Genre'].str.contains("doom"),'Genre'] = 'Doom'
 metal.loc[metal['Genre'].str.contains("metalcore"),'Genre'] = 'Metalcore'
 metal.loc[metal['Genre'].str.contains("grindcore"),'Genre'] = 'Grindcore'
