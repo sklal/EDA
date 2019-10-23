@@ -119,7 +119,11 @@ Fans_year = usa.groupby('Year Formed')['Fans'].sum()
 plt.title('Counts of Fans per Year')
 sns.barplot(x=Fans_year[:46].keys(), y=Fans_year[:46].values, palette="GnBu_d")
 
-# There's a peak in 1981,1983 and 1985
+# There's a peak in 1981,1983 and 1985!
+
+# On the flip side, the genre has lost popularity in the USA since 2005, witnessing a significant drop!
+
+# Looking at the positive
 
 usa[(usa.Fans >= 700) & (usa['Year Formed'].isin(['1981', '1983', '1985']))]
 
@@ -142,7 +146,7 @@ plt.figure(figsize=(16, 8))
 # plot chart
 ax1 = plt.subplot(121, aspect='equal')
 top5_usa.plot(kind='pie', y='Fans', ax=ax1, autopct='%1.1f%%',
-              startangle=90, shadow=False, labels=top5_usa['Band Name'], legend=False, fontsize=14, title="Top 5 Metal bands in the USA", color=mcd.CSS4_COLORS)
+              startangle=90, shadow=False, labels=top5_usa['Band Name'], legend=False, fontsize=14, title="Top 5 Metal bands in the USA")
 
 
 # Let's have a look at the pioneers of Metal music
