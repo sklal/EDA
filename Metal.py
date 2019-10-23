@@ -1,4 +1,6 @@
-# Libraries
+# Metal Music - Metal is the feeling of being an outsider, but still being part of something huge.
+# As Sam Dunn, the award winning documentary filmmaker and anthropologist said "If metal doesn't give that overwhelming surge of power that make the hair stand up at the back of your neck, you might never get it, and you know what? That's okay"
+# As a fan of the extremely loved/hated genre of music. This is my attempt to make sense of the information I have on the music.
 import pandas as pd
 import numpy as np
 import re
